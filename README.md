@@ -19,6 +19,11 @@ catkin build
 
 ## Running in Simulation
 
+In order to bring up the arm and hand together with moveit, run:
+```bash
+roslaunch ur5_robotiq_moveit_config demo.launch
+```
+
 To visualize and verify the combined urdf:
 ```bash
 roslaunch ur5_robotiq_description test_ur5_robotiq.launch
