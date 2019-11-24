@@ -16,3 +16,10 @@ cd ../..
 source /opt/ros/kinetic/setup.bash
 catkin build
 ```
+
+## Running in Simulation
+
+To visualize and verify the combined urdf:
+```bash
+roslaunch ur5_robotiq_description test_ur5_robotiq.launch
+```

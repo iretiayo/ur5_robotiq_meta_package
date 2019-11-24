@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="ur5_robotiq">
+
+   <!-- Include ur5 robot -->
+   <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
+
+   <!-- Include Robotiq Hand robot -->
+   <xacro:include filename="$(find robotiq_2f_85_gripper_visualization)/urdf/robotiq_arg2f_85_model_macro.xacro" />
+
+   <xacro:macro name="ur5_robotiq" params="prefix">
+      <!-- invoke ur5 macro -->
+      <xacro:ur5_robot prefix="${prefix}" joint_limited="true"
+         shoulder_pan_lower_limit="${-pi}" shoulder_pan_upper_limit="${pi}"
+         shoulder_lift_lower_limit="${-pi}" shoulder_lift_upper_limit="${pi}"
+         elbow_joint_lower_limit="${-pi}" elbow_joint_upper_limit="${pi}"
+         wrist_1_lower_limit="${-pi}" wrist_1_upper_limit="${pi}"
+         wrist_2_lower_limit="${-pi}" wrist_2_upper_limit="${pi}"
+         wrist_3_lower_limit="${-pi}" wrist_3_upper_limit="${pi}"
+      />
+      <link name="world" />
+      <joint name="world_joint" type="fixed">
+         <parent link="world" />
+         <child link = "base_link" />
+         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+      </joint>
+
+      <!-- invoke robotiq hand macro -->
+      <xacro:robotiq_arg2f_85 prefix="${prefix}"/>
+
+      <joint name="ee_robotiq_joint" type="fixed">
+         <parent link="ee_link"/>
+         <child link="robotiq_arg2f_base_link"/>
+         <origin xyz="0.0 0.0 0.0" rpy="0.0 1.57 0.0" />
+      </joint>
+
+      <!-- GraspIt! reference frame is slight offset from b_hand_base_link -->
+      <!-- <joint name="graspit_joint" type="fixed">
+				<parent link="robotiq_arg2f_base_link" />
+				<child link="graspit_link" />
+				<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.085" />
+		</joint>
+		<link name="graspit_link" /> -->
+   </xacro:macro>
+
+   <xacro:ur5_robotiq prefix=""/>
+</robot>
+
