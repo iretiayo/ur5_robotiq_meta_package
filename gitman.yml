@@ -1,0 +1,10 @@
+location: .
+sources:
+
+# UR5 and Barrett includes
+- name: robotiq
+  repo: 'git@github.com:ros-industrial/robotiq.git'
+  rev: kinetic-devel
+- name: universal_robot
+  repo: 'https://github.com/ros-industrial/universal_robot.git'
+  rev: kinetic-devel
