@@ -4,6 +4,8 @@
    <!-- Include ur5 robot -->
    <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
 
+   <xacro:arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface"/>
+
    <!-- Include Robotiq Hand robot -->
    <xacro:include filename="$(find robotiq_2f_85_gripper_visualization)/urdf/robotiq_arg2f_85_model_macro.xacro" />
 
@@ -11,13 +13,8 @@
 
    <xacro:macro name="ur5_robotiq" params="prefix">
       <!-- invoke ur5 macro -->
-      <xacro:ur5_robot prefix="${prefix}" joint_limited="true"
-         shoulder_pan_lower_limit="${-pi}" shoulder_pan_upper_limit="${pi}"
-         shoulder_lift_lower_limit="${-pi}" shoulder_lift_upper_limit="${pi}"
-         elbow_joint_lower_limit="${-pi}" elbow_joint_upper_limit="${pi}"
-         wrist_1_lower_limit="${-pi}" wrist_1_upper_limit="${pi}"
-         wrist_2_lower_limit="${-pi}" wrist_2_upper_limit="${pi}"
-         wrist_3_lower_limit="${-pi}" wrist_3_upper_limit="${pi}"
+      <xacro:ur5_robot prefix="${prefix}" joint_limited="false"
+         transmission_hw_interface="$(arg transmission_hw_interface)"
          kinematics_file="${load_yaml('$(arg kinematics_config)')}"
       />
       <link name="world" />

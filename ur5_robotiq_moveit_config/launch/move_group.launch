@@ -2,7 +2,6 @@
 
   <include file="$(find ur5_robotiq_moveit_config)/launch/planning_context.launch" />
 
-  <arg name="real" default="false" />
   <!-- GDB Debug Option -->
   <arg name="debug" default="false" />
   <arg unless="$(arg debug)" name="launch_prefix" value="" />
@@ -38,10 +37,6 @@
                 move_group/ClearOctomapService
                 " />
   -->
-
-  <group if="$(arg real)">
-    <remap from="/manipulator_controller/follow_joint_trajectory" to="/scaled_pos_traj_controller/follow_joint_trajectory"/>
-  </group>
 
   <!-- Planning Functionality -->
   <include ns="move_group" file="$(find ur5_robotiq_moveit_config)/launch/planning_pipeline.launch.xml">
