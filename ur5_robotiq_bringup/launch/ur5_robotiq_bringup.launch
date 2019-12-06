@@ -1,0 +1,41 @@
+<launch>
+
+    <!-- Upload the description for the ur5 arm and robotiq hand -->
+    <!-- <include file="$(find ur5_robotiq_description)/launch/upload_ur5_robotiq.launch"/> -->
+
+    <!-- Staubli TX60 Controller launch -->
+    <!-- <include file="$(find staubli_tx60)/launch/staubli.launch"/> -->
+
+  <arg name="robot_description_file" default="$(find ur5_robotiq_description)/launch/upload_ur5_robotiq.launch" doc="Robot description launch file."/>
+  <arg name="robot_ip" default="192.168.0.102" doc="IP address by which the UR5 robot can be reached."/>
+  <arg name="kinematics_config" default="$(find ur_description)/config/ur5_default.yaml" doc="Kinematics config file used for calibration correction. This will be used to verify the robot's calibration is matching the robot_description."/>
+
+  <arg name="hand_port" default="/dev/ttyUSB0"/>
+
+
+  <include file="$(find ur_robot_driver)/launch/ur5_bringup.launch">
+    <arg name="robot_description_file" value="$(arg robot_description_file)"/>
+    <arg name="robot_ip" value="$(arg robot_ip)"/>
+    <arg name="kinematics_config" value="$(arg kinematics_config)"/>
+  </include>
+
+
+    <!-- <arg name="gripper_name" default="gripper" /> -->
+    <!-- Robotiq hand controller -->
+    <!-- <node name="robotiq_2f_gripper_control" pkg="robotiq_2f_gripper_control" type="Robotiq2FGripperRtuNode.py" output="screen" args="$(arg hand_port)">
+        <remap from="Robotiq2FGripperRobotInput" to="$(arg gripper_name)/input"/>
+        <remap from="Robotiq2FGripperRobotOutput" to="$(arg gripper_name)/output"/>
+    </node> -->
+
+
+    <!-- Barrett hand action server -->
+    <!-- <node name="barrett_trajectory_action_server" pkg="barrett_trajectory_action_server" type="barrett_follow_trajectory_as.py" output="screen"/> -->
+    <!-- <node name="barrett_trajectory_action_server" pkg="barrett_trajectory_action_server" type="barrett_follow_trajectory_as.py" output="screen"/> -->
+
+  <arg name="sim" default="false"/>
+  <include file="$(find ur5_robotiq_bringup)/launch/robotiq_2f_85_gripper_controller.launch">
+    <arg name="comport" value="$(arg hand_port)" unless="$(arg sim)"/>
+    <arg name="sim" value="$(arg sim)"/>
+  </include>
+
+</launch>

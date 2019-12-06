@@ -49,5 +49,5 @@ CATKIN_IGNORE
 
 # Gitman stuff
 universal_robot/*
-robotiq/*
+robotiq_2finger_grippers/*
 Universal_Robots_ROS_Driver/*

@@ -2,9 +2,9 @@ location: .
 sources:
 
 # UR5 and Robotiq includes
-- name: robotiq
-  repo: 'git@github.com:ros-industrial/robotiq.git'
-  rev: kinetic-devel
+- name: robotiq_2finger_grippers
+  repo: 'git@github.com:Danfoa/robotiq_2finger_grippers.git'
+  rev: master
 - name: Universal_Robots_ROS_Driver
   repo: 'https://github.com/UniversalRobots/Universal_Robots_ROS_Driver.git'
   rev: master
