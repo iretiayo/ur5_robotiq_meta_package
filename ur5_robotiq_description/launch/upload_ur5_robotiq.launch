@@ -1,4 +1,6 @@
 <launch>  
   <arg name="prefix" default="" />
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find ur5_robotiq_description)/urdf/ur5_robotiq.xacro' prefix:='$(arg prefix)'"/>
+  <arg name="limited" default="true" />
+  <arg name="kinematics_config" default="$(find ur_description)/config/ur5_default.yaml"/>
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find ur5_robotiq_description)/urdf/ur5_robotiq.xacro' prefix:='$(arg prefix)' kinematics_config:='$(arg kinematics_config)'"/>
 </launch>

@@ -50,3 +50,4 @@ CATKIN_IGNORE
 # Gitman stuff
 universal_robot/*
 robotiq/*
+Universal_Robots_ROS_Driver/*

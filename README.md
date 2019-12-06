@@ -28,3 +28,31 @@ To visualize and verify the combined urdf:
 ```bash
 roslaunch ur5_robotiq_description test_ur5_robotiq.launch
 ```
+
+
+## Running on Real Robot
+
+According to instructions [here](https://github.com/UniversalRobots/Universal_Robots_ROS_Driver#quick-start), start the external control program on the robot's teach-pendant and then roslaunch:
+
+### UR5 Arm Only
+```bash
+roslaunch ur_robot_driver ur5_bringup.launch robot_ip:=192.168.0.102
+```
+
+MoveIt!
+Add `<remap from="/follow_joint_trajectory" to="/scaled_pos_traj_controller/follow_joint_trajectory"/>` to ur5_moveit_planning_execution.launch
+```bash=
+roslaunch ur5_moveit_config ur5_moveit_planning_execution.launch
+roslaunch ur5_moveit_config moveit_rviz.launch config:=true
+```
+
+### Robotiq Hand Only
+
+```bash
+rosrun robotiq_2f_gripper_control Robotiq2FGripperRtuNode.py /dev/ttyUSB0
+rosrun robotiq_2f_gripper_control Robotiq2FGripperSimpleController.py
+```
+
+
+rosrun robotiq_2f_gripper_control Robotiq2FGripperRtuNode.py /dev/ttyUSB0 Robotiq2FGripperRobotInput:=gripper/input Robotiq2FGripperRobotOutput:=gripper/output
+roslaunch robotiq_2f_gripper_action_server robotiq_2f_gripper_action_server.launch
