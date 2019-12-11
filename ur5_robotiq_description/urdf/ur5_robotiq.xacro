@@ -30,7 +30,8 @@
       <joint name="ee_robotiq_joint" type="fixed">
          <parent link="ee_link"/>
          <child link="robotiq_arg2f_base_link"/>
-         <origin xyz="0.0 0.0 0.0" rpy="0.0 1.57 0.0" />
+         <origin xyz="0.0 0.0 0.0" rpy="1.57 0.0 1.57" />
+         <!-- <origin xyz="0.0 0.0 0.0" rpy="0.0 1.57 0.0" /> -->
       </joint>
 
       <!-- GraspIt! reference frame is slight offset from b_hand_base_link -->
