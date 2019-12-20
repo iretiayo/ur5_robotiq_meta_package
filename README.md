@@ -78,5 +78,5 @@ roslaunch ur5_robotiq_moveit_config ur5_robotiq_moveit_planning_execution.launch
 
 - Start Rviz
 ```bash
-roslaunch ur5_robotiq_bringup ur5_robotiq_bringup.launch
+roslaunch ur5_moveit_config moveit_rviz.launch config:=true
 ```

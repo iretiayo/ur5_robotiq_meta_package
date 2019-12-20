@@ -44,6 +44,14 @@
         <joint name="wrist_2_joint" value="0" />
         <joint name="wrist_3_joint" value="0" />
     </group_state>
+    <group_state name="home2" group="manipulator">
+        <joint name="elbow_joint" value="-2.0975" />
+        <joint name="shoulder_lift_joint" value="-1.98" />
+        <joint name="shoulder_pan_joint" value="1.492" />
+        <joint name="wrist_1_joint" value="-0.617" />
+        <joint name="wrist_2_joint" value="1.610" />
+        <joint name="wrist_3_joint" value="-2.907" />
+    </group_state>
     <group_state name="open" group="gripper">
         <joint name="finger_joint" value="0" />
     </group_state>

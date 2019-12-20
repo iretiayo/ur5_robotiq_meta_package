@@ -2,6 +2,7 @@
   <arg name="sim" default="false" />
   <arg name="limited" default="false"/>
   <arg name="debug" default="false" />
+  <arg name="planner" default="ompl" />
     
   <!-- Remap follow_joint_trajectory -->
   <remap if="$(arg sim)" from="/follow_joint_trajectory" to="/arm_controller/follow_joint_trajectory"/>
@@ -11,5 +12,6 @@
   <!-- Launch moveit -->
   <include file="$(find ur5_robotiq_moveit_config)/launch/move_group.launch">
     <arg name="debug" default="$(arg debug)" />
+    <arg name="planner" default="$(arg planner)" />
   </include>
 </launch>
