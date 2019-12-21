@@ -35,12 +35,12 @@
       </joint>
 
       <!-- GraspIt! reference frame is slight offset from b_hand_base_link -->
-      <!-- <joint name="graspit_joint" type="fixed">
-				<parent link="robotiq_arg2f_base_link" />
+      <joint name="graspit_joint" type="fixed">
+				<parent link="ee_link" />
 				<child link="graspit_link" />
-				<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.085" />
+				<origin rpy="1.57 0.0 0.0" xyz="0.0 0.0 0.0" />
 		</joint>
-		<link name="graspit_link" /> -->
+		<link name="graspit_link" />
    </xacro:macro>
 
    <xacro:ur5_robotiq prefix=""/>
