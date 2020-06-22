@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: multi_ur5_robotiq_description
+    relative_path: urdf/two_ur5_robotiq.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/multi_ur5.srdf
+  CONFIG:
+    author_name: Iretiayo Akinola
+    author_email: iretibob@gmail.com
+    generated_timestamp: 1592805547

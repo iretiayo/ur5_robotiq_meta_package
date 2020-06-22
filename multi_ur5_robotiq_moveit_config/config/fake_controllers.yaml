@@ -1,0 +1,28 @@
+controller_list:
+  - name: fake_arm1_controller
+    joints:
+      - arm1_shoulder_pan_joint
+      - arm1_shoulder_lift_joint
+      - arm1_elbow_joint
+      - arm1_wrist_1_joint
+      - arm1_wrist_2_joint
+      - arm1_wrist_3_joint
+  - name: fake_arm2_controller
+    joints:
+      - arm2_shoulder_pan_joint
+      - arm2_shoulder_lift_joint
+      - arm2_elbow_joint
+      - arm2_wrist_1_joint
+      - arm2_wrist_2_joint
+      - arm2_wrist_3_joint
+  - name: fake_gripper1_controller
+    joints:
+      - arm1_finger_joint
+  - name: fake_gripper2_controller
+    joints:
+      - arm2_finger_joint
+initial:
+  - group: arm1
+    pose:  Home_arm1
+  - group: arm2
+    pose:  Home_arm2
