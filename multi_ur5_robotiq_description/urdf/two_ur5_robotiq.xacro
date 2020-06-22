@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="multi_ur5">
+
+   <!-- Include ur5 robot -->
+   <xacro:include filename="$(find ur5_robotiq_description)/urdf/ur5_robotiq.xacro" />
+
+   <link name="world" />
+   <xacro:property name="interval" value="0.5" />
+   <xacro:property name="J_PI" value="3.1415926535897931" />
+   <xacro:property name="arm1_joint_origin_xyz" value="0.0 0.0 0.0" />
+   <xacro:property name="arm1_joint_origin_rpy" value="0 0 0" />
+   <xacro:property name="arm2_joint_origin_xyz" value="0.5 0.0 0.0" />
+   <xacro:property name="arm2_joint_origin_rpy" value="0 0 0" />
+
+   <xacro:macro name="double_ur5_robotiq">
+
+      <xacro:property name="arm1_prefix" value="arm1_" />
+      <xacro:ur5_robotiq prefix="${arm1_prefix}"/>
+      <joint name="${arm1_prefix}_world_joint" type="fixed">
+         <parent link="world" />
+         <child link = "${arm1_prefix}base_link" />
+         <origin xyz="${arm1_joint_origin_xyz}" rpy="${arm1_joint_origin_rpy}" />
+      </joint>
+
+      <xacro:property name="arm2_prefix" value="arm2_" />
+      <xacro:ur5_robotiq prefix="${arm2_prefix}"/>
+      <joint name="${arm2_prefix}_world_joint" type="fixed">
+         <parent link="world" />
+         <child link = "${arm2_prefix}base_link" />
+         <origin xyz="${arm2_joint_origin_xyz}" rpy="${arm2_joint_origin_rpy}" />
+      </joint>
+   </xacro:macro>
+
+   <xacro:double_ur5_robotiq />
+</robot>
+

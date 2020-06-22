@@ -1,0 +1,5 @@
+<launch>
+    <arg name="prefix" default=""/>
+    <param name="robot_description"
+           command="$(find xacro)/xacro.py '$(find multi_ur5_robotiq_description)/urdf/two_ur5_robotiq.xacro' prefix:='$(arg prefix)'"/>
+</launch>
