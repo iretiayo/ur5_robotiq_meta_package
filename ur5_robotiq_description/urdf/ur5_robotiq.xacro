@@ -13,7 +13,7 @@
 
    <xacro:macro name="ur5_robotiq" params="prefix">
       <!-- invoke ur5 macro -->
-      <xacro:ur5_robot prefix="${prefix}" joint_limited="false"
+      <xacro:ur5_robot prefix="${prefix}" joint_limited="true"
          transmission_hw_interface="$(arg transmission_hw_interface)"
          kinematics_file="${load_yaml('$(arg kinematics_config)')}"
       />
