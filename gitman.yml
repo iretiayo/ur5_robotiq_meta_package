@@ -7,7 +7,7 @@ sources:
   rev: master
 - name: Universal_Robots_ROS_Driver
   repo: 'https://github.com/UniversalRobots/Universal_Robots_ROS_Driver.git'
-  rev: master
+  rev: 783b1d1f5774220058d0a2aa3dd93185641e8c7e #master
 - name: universal_robot
   repo: 'https://github.com/fmauch/universal_robot.git'
-  rev: calibration_devel
+  rev: 90c141b4719dd0df87baef12c46c26c374608ba1 #calibration_devel
